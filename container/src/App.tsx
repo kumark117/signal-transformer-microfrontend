@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react';
 
-const RemoteApp = React.lazy(() => import("remote/remoteTransformer"));
+const RemoteApp = React.lazy(() => import("SignalTransformer/remoteTransformer"));
 
 interface RemoteProps {
   multiplier: number;

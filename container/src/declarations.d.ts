@@ -1,1 +1,2 @@
-declare module "remote/remoteTransformer";
+declare module "SignalTransformer/remoteTransformer";
+//declare module "remote/remoteTransformer";

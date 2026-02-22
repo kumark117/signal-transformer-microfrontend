@@ -4,22 +4,24 @@
   "description": "Remote app for Micro-Frontend POC",
   "scripts": {
     "start": "webpack serve --mode development --port 3001",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@module-federation/enhanced": "^0.2.0",
+    "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "@types/node": "^20.0.0",
+    "gh-pages": "^6.3.0",
+    "html-webpack-plugin": "^5.6.0",
+    "ts-loader": "^9.5.0",
     "typescript": "^5.0.0",
     "webpack": "^5.90.0",
     "webpack-cli": "^5.1.0",
-    "webpack-dev-server": "^4.15.0",
-    "@module-federation/enhanced": "^0.2.0",
-    "ts-loader": "^9.5.0",
-    "html-webpack-plugin": "^5.6.0"
+    "webpack-dev-server": "^4.15.0"
   }
 }

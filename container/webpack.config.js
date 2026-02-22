@@ -32,9 +32,11 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'container',
-      remotes: {
-          remote: "SignalTransformer@https://signal-transformer-microfrontend-32938btxk-kumark117s-projects.vercel.app/remoteEntry.js"
-      },
+        remotes: {
+    SignalTransformer:
+      "SignalTransformer@https://kumark117.github.io/signal-transformer-microfrontend/remoteEntry.js",
+  },
+
       shared: {
         react: {
           singleton: true,

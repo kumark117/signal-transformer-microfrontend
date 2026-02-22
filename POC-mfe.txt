@@ -3,3 +3,39 @@ Author: KK
         remote: 'SignalTransformer@http://localhost:3001/remoteEntry.js',
 
   remote: "SignalTransformer@https://signal-transformer-microfrontend-32938btxk-kumark117s-projects.vercel.app/remoteEntry.js"
+
+            remote: "remoteApp@https://kumark117.github.io/signal-transformer-microfrontend/remoteEntry.js",
+            
+          remote: "SignalTransformer@https://signal-transformer-microfrontend-32938btxk-kumark117s-projects.vercel.app/remoteEntry.js"
+      
+
+REPLACE
+            remotes: {
+            remote:"remote@https://kumark117.github.io/signal-transformer-microfrontend/remoteEntry.js"
+      },
+WITH
+        remotes: {
+    SignalTransformer:
+      "SignalTransformer@https://kumark117.github.io/signal-transformer-microfrontend/remoteEntry.js",
+  },
+
+
+
+  //WHAT I HAVE
+  App.tsx
+  const RemoteApp = React.lazy(() => import("SignalTransformer/remoteTransformer"));
+
+//remote: webpack.config.js
+    new ModuleFederationPlugin({
+      name: 'SignalTransformer',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './remoteTransformer': './src/SignalTransformer.tsx',
+      },
+//container: webpack.config.js
+    new ModuleFederationPlugin({
+      name: 'container',
+        remotes: {
+    SignalTransformer:
+      "SignalTransformer@https://kumark117.github.io/signal-transformer-microfrontend/remoteEntry.js",
+  },
