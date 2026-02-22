@@ -1,3 +1,5 @@
 Author: KK
 
         remote: 'SignalTransformer@http://localhost:3001/remoteEntry.js',
+
+  remote: "SignalTransformer@https://signal-transformer-microfrontend-32938btxk-kumark117s-projects.vercel.app/remoteEntry.js"
