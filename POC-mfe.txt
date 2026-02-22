@@ -1,1 +1,3 @@
 Author: KK
+
+        remote: 'SignalTransformer@http://localhost:3001/remoteEntry.js',
