@@ -19,7 +19,21 @@ export default function App() {
     <div style={styles.container}>
       <div style={styles.card}>
         <h1 style={styles.title}>Signal Transformer MicroFE</h1>
-        
+
+  <h2 style={{ marginBottom: "10px" }}>
+    Micro-Frontend Architecture
+  </h2>
+
+  <h2 style={{ fontWeight: "normal", marginBottom: "20px" }}>
+    React + TypeScript + Module Federation (Webpack 5)
+  </h2>
+
+  <p style={{ marginBottom: "30px", lineHeight: 1.6 }}>
+    This project demonstrates a micro-frontend architecture using
+    Webpack Module Federation. The container application dynamically
+    loads remote applications at runtime, enabling independent
+    deployment, scalability, and separation of concerns.
+  </p>
         <div style={styles.section}>
           <h2 style={styles.sectionTitle}>Container State</h2>
           <p style={styles.text}>Multiplier: <strong>{multiplier}</strong></p>
