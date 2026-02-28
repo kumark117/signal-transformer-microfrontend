@@ -66,6 +66,28 @@ npm start
 
 Navigate to: `http://localhost:3000`
 
+## Remote Source (GitHub Pages vs Local)
+
+The container loads the remote from GitHub Pages by default:
+
+- `https://kumark117.github.io/signal-transformer-microfrontend/remoteEntry.js`
+
+If you want to use your local remote instead, set `REMOTE_URL` before starting the container.
+
+**PowerShell (Windows):**
+
+```powershell
+$env:REMOTE_URL="http://localhost:3001/remoteEntry.js"
+npm start
+```
+
+To go back to the GitHub Pages default in the same shell:
+
+```powershell
+Remove-Item Env:REMOTE_URL
+npm start
+```
+
 ## How It Works
 
 ### Container (Host) - Port 3000

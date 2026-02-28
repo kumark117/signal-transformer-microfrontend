@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 
+const remoteEntryUrl = process.env.REMOTE_URL || 'https://kumark117.github.io/signal-transformer-microfrontend/remoteEntry.js';
+
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
@@ -32,10 +34,9 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'container',
-        remotes: {
-    SignalTransformer:
-      "SignalTransformer@https://kumark117.github.io/signal-transformer-microfrontend/remoteEntry.js",
-  },
+      remotes: {
+        SignalTransformer: `SignalTransformer@${remoteEntryUrl}`,
+      },
 
       shared: {
         react: {

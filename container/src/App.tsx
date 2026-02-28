@@ -8,12 +8,16 @@ interface RemoteProps {
 }
 
 export default function App() {
-  const [multiplier] = useState(777);
+  const [multiplier] = useState(777.77);
   const [finalResult, setFinalResult] = useState<number | null>(null);
 
   const handleResult = (value: number) => {
     setFinalResult(value);
   };
+
+  const handleClear = () => {
+  setFinalResult(null);
+};
 
   return (
     <div style={styles.container}>
@@ -47,6 +51,7 @@ export default function App() {
             <RemoteApp 
               multiplier={multiplier} 
               onResult={handleResult}
+              onClear={handleClear}
             />
           </Suspense>
         </div>

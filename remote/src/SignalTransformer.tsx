@@ -3,16 +3,34 @@ import React, { useState } from 'react';
 interface SignalTransformerProps {
   multiplier: number;
   onResult: (value: number) => void;
+  onClear: () => void;
 }
 
-export default function SignalTransformer({ multiplier, onResult }: SignalTransformerProps) {
+export default function SignalTransformer({ multiplier, onResult, onClear }: SignalTransformerProps) {
   const [inputValue, setInputValue] = useState('');
+  const [hasTransformed, setHasTransformed] = useState(false);
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    if (hasTransformed) {
+      onClear();
+      setHasTransformed(false);
+    }
+
+    if (value.trim() === "" || !value.match(/^-?\d*\.?\d*$/) || isNaN(parseFloat(value))) {
+      setInputValue("0");
+      onClear();
+    }
+  };
 
   const handleTransform = () => {
     const num = parseFloat(inputValue);
     if (!isNaN(num)) {
       const result = num * multiplier;
       onResult(result);
+      setHasTransformed(true);
     }
   };
 
@@ -22,7 +40,7 @@ export default function SignalTransformer({ multiplier, onResult }: SignalTransf
         <input
           type="number"
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={handleChange}
           placeholder="Enter a number"
           style={styles.input}
           onKeyPress={(e) => e.key === 'Enter' && handleTransform()}
