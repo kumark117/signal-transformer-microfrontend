@@ -20,7 +20,7 @@ export default function SignalTransformer({ multiplier, onResult, onClear }: Sig
     }
 
     if (value.trim() === "" || !value.match(/^-?\d*\.?\d*$/) || isNaN(parseFloat(value))) {
-      setInputValue("0");
+      setInputValue("");
       onClear();
     }
   };
